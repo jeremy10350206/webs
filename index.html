@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生日驚喜</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="homepage-container">
+    <h1>🎉 歡迎來到你的生日驚喜！ 🎂</h1>
+    <p>準備好了嗎？點擊下方按鍵來揭開驚喜！</p>
+    <button id="start-button">開啟驚喜</button>
+    <audio id="background-music" loop>
+      <source src="happy_birthday.mp3" type="audio/mpeg">
+      您的瀏覽器不支援音樂播放。
+    </audio>
+  </div>
+  <script>
+    document.getElementById("start-button").addEventListener("click", () => {
+      const music = document.getElementById("background-music");
+      if (music) {
+        music.play().catch((error) => {
+          console.error("音樂播放失敗：", error);
+        });
+      }
+      // 延遲 1 秒後跳轉，確保音樂播放開始
+      setTimeout(() => {
+        window.location.href = "blessings.html";
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
